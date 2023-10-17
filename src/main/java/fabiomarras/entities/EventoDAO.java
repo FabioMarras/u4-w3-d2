@@ -35,8 +35,4 @@ public class EventoDAO {
             System.out.println("Evento rimosso con successo!");
         }
     }
-
-    public Evento refresh(){
-        return null;
-    }
 }

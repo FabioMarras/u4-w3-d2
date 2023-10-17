@@ -1,9 +1,6 @@
 package fabiomarras.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -15,12 +12,14 @@ public class Evento {
     private String titolo;
     private String dataEvento;
     private String descrizione;
-    private String tipoEvento;
+    //private String tipoEvento;
+    @Enumerated(EnumType.STRING)
+    private TipoEvento tipoEvento;
     private Integer numeroMassimoPartecipanti;
 
     public Evento(){}
 
-    public Evento(String titolo, String dataEvento, String descrizione, String tipoEvento,Integer numeroMassimoPartecipanti) {
+    public Evento(String titolo, String dataEvento, String descrizione, TipoEvento tipoEvento,Integer numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
@@ -60,11 +59,11 @@ public class Evento {
         this.descrizione = descrizione;
     }
 
-    public String getTipoEvento() {
+    public TipoEvento getTipoEvento() {
         return tipoEvento;
     }
 
-    public void setTipoEvento(String tipoEvento) {
+    public void setTipoEvento(TipoEvento tipoEvento) {
         this.tipoEvento = tipoEvento;
     }
 
@@ -83,7 +82,7 @@ public class Evento {
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento='" + dataEvento + '\'' +
                 ", descrizione='" + descrizione + '\'' +
-                ", tipoEvento='" + tipoEvento + '\'' +
+                ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
                 '}';
     }
