@@ -9,6 +9,8 @@ public class EventoDAO {
     public EventoDAO(EntityManager em) {
         this.em = em;
     }
+
+    //METODO SAVE
     public void save(Evento s){
     EntityTransaction transaction = em.getTransaction();
     transaction.begin();
@@ -18,7 +20,7 @@ public class EventoDAO {
     }
 
     public Evento findById(UUID id){
-        return null;
+        return em.find(Evento.class, id);
     }
     public  void findByIdAndDelete(UUID id){}
 

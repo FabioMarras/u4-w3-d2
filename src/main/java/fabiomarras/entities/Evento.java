@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-@Table(name = "event")
+@Table(name = "events")
 public class Evento {
     @Id
     @GeneratedValue
@@ -68,12 +68,23 @@ public class Evento {
         this.tipoEvento = tipoEvento;
     }
 
-    public Evento(UUID id, String titolo, String dataEvento, String descrizione, String tipoEvento, Integer numeroMassimoPartecipanti) {
-        this.id = id;
-        this.titolo = titolo;
-        this.dataEvento = dataEvento;
-        this.descrizione = descrizione;
-        this.tipoEvento = tipoEvento;
+    public Integer getNumeroMassimoPartecipanti() {
+        return numeroMassimoPartecipanti;
+    }
+
+    public void setNumeroMassimoPartecipanti(Integer numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento='" + dataEvento + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoEvento='" + tipoEvento + '\'' +
+                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                '}';
     }
 }
