@@ -19,10 +19,22 @@ public class EventoDAO {
         System.out.println("Evento registrato con successo!!");
     }
 
+    //METODO FIND per id
     public Evento findById(UUID id){
         return em.find(Evento.class, id);
     }
-    public  void findByIdAndDelete(UUID id){}
+
+    //METODO DELETE per eliminare tramite id
+    public  void findByIdAndDelete(UUID id){
+        Evento found = em.find(Evento.class, id);
+        if (found != null) {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            em.remove(found);
+            transaction.commit();
+            System.out.println("Evento rimosso con successo!");
+        }
+    }
 
     public Evento refresh(){
         return null;

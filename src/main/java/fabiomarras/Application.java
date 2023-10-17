@@ -22,12 +22,17 @@ public class Application {
         sd.save(festaFabio);*/
 
         //FIND per cercare tramite id
-        Evento findById = sd.findById(UUID.fromString("6834b710-1165-486f-9bd5-6b51b7b650d3"));
+        /*Evento findById = sd.findById(UUID.fromString("6834b710-1165-486f-9bd5-6b51b7b650d3"));
         if (findById != null) {
             System.out.println(findById);
         } else {
-            System.err.println("non ho trovato niente");
-        }
+            System.out.println("non ho trovato niente");
+        }*/
+
+        //DELETE per carncellare tramite id
+        //sd.findByIdAndDelete(UUID.fromString("6834b710-1165-486f-9bd5-6b51b7b650d3"));
+
+        
 
         } catch (Exception ex){
             System.err.println(ex.getMessage());
